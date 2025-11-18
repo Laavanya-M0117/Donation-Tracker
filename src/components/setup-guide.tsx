@@ -4,7 +4,7 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Alert, AlertDescription } from './ui/alert';
 import { Separator } from './ui/separator';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { getSetupInstructions } from '../lib/config';
 import { 
   CheckCircle, 
@@ -18,7 +18,7 @@ import {
   Wallet,
   Terminal
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface SetupGuideProps {
   onDismiss: () => void;

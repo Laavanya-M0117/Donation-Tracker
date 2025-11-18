@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { SearchFilters } from '../hooks/useSearch';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, 
   Filter, 

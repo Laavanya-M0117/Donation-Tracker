@@ -148,11 +148,11 @@ export function AnalyticsDashboard({ ngos, donations }: AnalyticsDashboardProps)
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip 
-                  formatter={[(value: number, name: string) => [
+                <Tooltip
+                  formatter={(value: number, name: string) => [
                     name === 'amount' ? `${value.toFixed(4)} MATIC` : value,
                     name === 'amount' ? 'Total Amount' : 'Total Donations'
-                  ]]}
+                  ]}
                 />
                 <Line type="monotone" dataKey="amount" stroke="#8884d8" strokeWidth={2} />
                 <Line type="monotone" dataKey="donations" stroke="#82ca9d" strokeWidth={2} />
@@ -183,7 +183,7 @@ export function AnalyticsDashboard({ ngos, donations }: AnalyticsDashboardProps)
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={[(value: number) => [`${value.toFixed(4)} MATIC`, 'Amount']]} />
+                <Tooltip formatter={(value: number) => [`${value.toFixed(4)} MATIC`, 'Amount']} />
               </PieChart>
             </ResponsiveContainer>
           </CardContent>
@@ -257,11 +257,11 @@ export function AnalyticsDashboard({ ngos, donations }: AnalyticsDashboardProps)
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip 
-                formatter={[(value: number, name: string) => [
+              <Tooltip
+                formatter={(value: number, name: string) => [
                   name === 'amount' ? `${value.toFixed(4)} MATIC` : value,
                   name === 'amount' ? 'Total Amount' : 'Total Donations'
-                ]]}
+                ]}
               />
               <Bar dataKey="donations" fill="#8884d8" />
             </BarChart>

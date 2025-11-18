@@ -4,8 +4,8 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import { motion, AnimatePresence } from 'motion/react';
-import { toast } from 'sonner@2.0.3';
+import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'sonner';
 
 interface WalletConnectProps {
   account: string;
