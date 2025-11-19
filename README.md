@@ -2,7 +2,7 @@
 
 A transparent, blockchain-based donation tracking platform for NGOs built on **Polygon Amoy Testnet**. This platform enables donors to contribute to verified food banks and relief organizations across India with complete transparency, allowing NGOs to track donations and provide proof of impact.
 
----
+  This is a code bundle for Design Donation Tracker Frontend. 
 
 ## 🌟 Features
 
