@@ -7,7 +7,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Building2, DollarSign, Upload, ExternalLink, FileText } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NGO {
   wallet: string;

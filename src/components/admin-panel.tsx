@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Shield, Building2, Check, X, ExternalLink } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NGO {
   wallet: string;

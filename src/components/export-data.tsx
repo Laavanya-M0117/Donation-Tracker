@@ -4,8 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Checkbox } from './ui/checkbox';
 import { Label } from './ui/label';
-import { toast } from 'sonner@2.0.3';
-import { motion } from 'motion/react';
+import { toast } from 'sonner';
+import { motion } from 'framer-motion';
 import { 
   Download, 
   FileText, 
