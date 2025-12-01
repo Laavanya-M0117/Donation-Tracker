@@ -1,17 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
 import { ScrollArea } from './ui/scroll-area';
 import { Separator } from './ui/separator';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Bell, 
-  X, 
-  Check, 
-  AlertCircle, 
-  Info, 
-  CheckCircle, 
+import {
+  Bell,
+  X,
+  AlertCircle,
+  Info,
+  CheckCircle,
   Heart,
   Building2,
   Shield,

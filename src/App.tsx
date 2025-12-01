@@ -16,7 +16,6 @@ import { NotificationSystem, useNotifications } from './components/notification-
 import { SearchFilter } from './components/search-filter';
 import { PaginationControls } from './components/pagination-controls';
 import { ExportData } from './components/export-data';
-import { DashboardSkeleton } from './components/loading-skeleton';
 import { ApprovedNGOs } from './components/approved-ngos';
 import { UpcomingCampaigns } from './components/upcoming-campaigns';
 import { UserDonationHistory } from './components/user-donation-history';
@@ -26,23 +25,19 @@ import { useSearch } from './hooks/useSearch';
 import { usePagination } from './hooks/usePagination';
 import { isProductionReady } from './lib/config';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
-import { 
-  Heart, 
-  Building2, 
-  BarChart3, 
-  Shield, 
+import {
+  Heart,
+  Building2,
+  BarChart3,
+  Shield,
   Settings,
   Moon,
   Sun,
-  Github,
-  Twitter,
   Globe,
   RefreshCw,
   AlertCircle,
-  CheckCircle,
   Search,
   Download,
-  FileText,
   X
 } from 'lucide-react';
 
@@ -461,7 +456,15 @@ export default function App() {
                     />
                     {donationPagination.totalItems > 0 && (
                       <div className="mt-6">
-                        <PaginationControls {...donationPagination} />
+                        <PaginationControls
+                          {...donationPagination}
+                          onPageChange={donationPagination.goToPage}
+                          onFirstPage={donationPagination.goToFirstPage}
+                          onLastPage={donationPagination.goToLastPage}
+                          onNextPage={donationPagination.goToNextPage}
+                          onPreviousPage={donationPagination.goToPreviousPage}
+                          onPageSizeChange={donationPagination.changePageSize}
+                        />
                       </div>
                     )}
                   </div>
@@ -476,9 +479,9 @@ export default function App() {
                     />
                     
                     {/* Approved NGOs */}
-                    <ApprovedNGOs 
+                    <ApprovedNGOs
                       ngos={blockchainState.ngos}
-                      onSelectNGO={(wallet) => {
+                      onSelectNGO={() => {
                         // Scroll to donation form would be nice but keeping it simple
                         setActiveTab('donate');
                       }}
@@ -520,7 +523,15 @@ export default function App() {
                   ngos={blockchainState.ngos} 
                 />
                 {donationPagination.totalItems > 0 && (
-                  <PaginationControls {...donationPagination} />
+                  <PaginationControls
+                    {...donationPagination}
+                    onPageChange={donationPagination.goToPage}
+                    onFirstPage={donationPagination.goToFirstPage}
+                    onLastPage={donationPagination.goToLastPage}
+                    onNextPage={donationPagination.goToNextPage}
+                    onPreviousPage={donationPagination.goToPreviousPage}
+                    onPageSizeChange={donationPagination.changePageSize}
+                  />
                 )}
               </TabsContent>
 
@@ -563,7 +574,15 @@ export default function App() {
                   donations={blockchainState.donations}
                 />
                 {ngoPagination.totalItems > 0 && (
-                  <PaginationControls {...ngoPagination} />
+                  <PaginationControls
+                    {...ngoPagination}
+                    onPageChange={ngoPagination.goToPage}
+                    onFirstPage={ngoPagination.goToFirstPage}
+                    onLastPage={ngoPagination.goToLastPage}
+                    onNextPage={ngoPagination.goToNextPage}
+                    onPreviousPage={ngoPagination.goToPreviousPage}
+                    onPageSizeChange={ngoPagination.changePageSize}
+                  />
                 )}
               </TabsContent>
 
@@ -620,12 +639,6 @@ export default function App() {
               <div>
                 <h3 className="font-medium mb-4">Connect</h3>
                 <div className="flex gap-2">
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Twitter className="w-4 h-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Github className="w-4 h-4" />
-                  </Button>
                   <Button variant="ghost" size="icon" className="rounded-full">
                     <Globe className="w-4 h-4" />
                   </Button>

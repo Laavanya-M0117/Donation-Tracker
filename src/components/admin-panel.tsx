@@ -178,7 +178,7 @@ export function AdminPanel({ account, isOwner, ngos, onApproveNGO }: AdminPanelP
                             <div className="flex gap-2 justify-end">
                               <Button
                                 variant="outline"
-                                onClick={() => document.querySelector('[data-state="open"]')?.click()}
+                                onClick={() => (document.querySelector('[data-state="open"]') as HTMLElement)?.click()}
                               >
                                 Cancel
                               </Button>
@@ -221,7 +221,7 @@ export function AdminPanel({ account, isOwner, ngos, onApproveNGO }: AdminPanelP
                             <div className="flex gap-2 justify-end">
                               <Button
                                 variant="outline"
-                                onClick={() => document.querySelector('[data-state="open"]')?.click()}
+                                onClick={() => (document.querySelector('[data-state="open"]') as HTMLElement)?.click()}
                               >
                                 Cancel
                               </Button>

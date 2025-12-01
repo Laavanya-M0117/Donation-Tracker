@@ -55,16 +55,17 @@ export function ExportData({ ngos, donations, className = "" }: ExportDataProps)
   const getFilteredDonations = () => {
     let filtered = [...donations];
 
-    if (options.dateRange !== 'all') {
+    if (options.dateRange !== 'all' && options.dateRange !== 'custom') {
       const now = Date.now();
-      const cutoff = {
+      const cutoff: Record<'7d' | '30d' | '90d', number> = {
         '7d': now - 7 * 24 * 60 * 60 * 1000,
         '30d': now - 30 * 24 * 60 * 60 * 1000,
         '90d': now - 90 * 24 * 60 * 60 * 1000,
-      }[options.dateRange];
+      };
 
-      if (cutoff) {
-        filtered = filtered.filter(d => d.timestamp * 1000 >= cutoff);
+      const cutoffTime = cutoff[options.dateRange];
+      if (cutoffTime) {
+        filtered = filtered.filter(d => d.timestamp * 1000 >= cutoffTime);
       }
     }
 

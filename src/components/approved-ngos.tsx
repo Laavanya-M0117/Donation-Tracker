@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Building2, CheckCircle, ExternalLink, MapPin } from 'lucide-react';
+import { Building2, CheckCircle, ExternalLink } from 'lucide-react';
 
 interface NGO {
   wallet: string;

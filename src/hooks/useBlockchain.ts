@@ -45,16 +45,24 @@ export function useBlockchain(): [BlockchainState, BlockchainActions] {
   // Auto-refresh interval
   const refreshIntervalRef = useRef<NodeJS.Timeout>();
 
+  // Use ref to store current account to avoid dependency issues
+  const accountRef = useRef(state.account);
+
+  // Update ref when account changes
+  useEffect(() => {
+    accountRef.current = state.account;
+  }, [state.account]);
+
   const updateState = useCallback((updates: Partial<BlockchainState>) => {
     setState(prev => ({ ...prev, ...updates }));
   }, []);
 
   const loadData = useCallback(async (showRefreshing = false) => {
-    if (!state.account) return;
-    
+    if (!accountRef.current) return;
+
     try {
       if (showRefreshing) updateState({ refreshing: true });
-      
+
       const [ngosData, donationsData, pendingData, balance, ownerStatus] = await Promise.all([
         blockchain.getNGOs(),
         blockchain.getDonations(),
@@ -62,12 +70,12 @@ export function useBlockchain(): [BlockchainState, BlockchainActions] {
         blockchain.getBalance(),
         blockchain.isOwner(),
       ]);
-      
+
       // Merge blockchain data with mock data for demonstration
       // Only show mock data if blockchain has no data yet
       const mergedNGOs = ngosData.length > 0 ? ngosData : [...mockNGOs as any];
       const mergedDonations = donationsData.length > 0 ? donationsData : [...mockDonations as any];
-      
+
       updateState({
         ngos: mergedNGOs,
         donations: mergedDonations,
@@ -83,7 +91,7 @@ export function useBlockchain(): [BlockchainState, BlockchainActions] {
     } finally {
       if (showRefreshing) updateState({ refreshing: false });
     }
-  }, [state.account, blockchain, updateState]);
+  }, [blockchain, updateState]);
 
   const connect = useCallback(async () => {
     try {
